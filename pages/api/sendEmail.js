@@ -11,11 +11,13 @@ export default async function handler(req, res) {
 
         // Configura el transporte de correo electrónico
         const transporter = nodemailer.createTransport({
-            service: 'Gmail',
+            port: 465,
+            host: "smtp.gmail.com",
             auth: {
                 user: process.env.MAIL_USER,
                 pass: process.env.MAIL_PASS,
             },
+            secure: true,
         });
 
         try {
